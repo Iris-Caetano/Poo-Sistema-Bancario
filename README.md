@@ -38,11 +38,10 @@ Conta Corrente: o saque considera o saldo somado ao limite emergencial disponív
 
 Conta Empresarial: além de considerar o limite disponível, o método soma uma taxa fixa de R$ 5,00 ao valor solicitado, tanto na validação do teto disponível quanto no débito efetivo, garantindo que a tarifa seja sempre cobrada junto ao saque.
 
+Em todos os casos, a alteração real do saldo é feita por meio do método debitar(), herdado da superclasse. Como esse método é protected, apenas as próprias contas podem executá-lo e somente depois de suas respectivas validações, o que impede que o saldo seja alterado diretamente pela classe Main ou por qualquer código externo à hierarquia de contas.
 
 
 Captura de tela do resultado no terminal:
 
-<img width="805" height="515" alt="Captura de tela 2026-09-08 203237" src="https://github.com/user-attachments/assets/50fedd95-94d4-464d-978a-7956ec7c2b58" />
+<img width="650" height="515" alt="Captura de tela 2026-09-08 203237" src="https://github.com/user-attachments/assets/50fedd95-94d4-464d-978a-7956ec7c2b58" />
 
-
-Em todos os casos, a alteração real do saldo é feita por meio do método debitar(), herdado da superclasse. Como esse método é protected, apenas as próprias contas podem executá-lo e somente depois de suas respectivas validações, o que impede que o saldo seja alterado diretamente pela classe Main ou por qualquer código externo à hierarquia de contas.
