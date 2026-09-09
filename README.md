@@ -6,18 +6,25 @@ Este projeto implementa um módulo de movimentação de contas para a fintech fi
 
 ## O projeto contempla:
 
-*Uma classe abstrata ContaBancaria, responsável pelos dados e comportamentos comuns a toda conta;
-*Três tipos de conta especializados (ContaCorrente, ContaPoupanca e ContaEmpresarial), cada um com sua própria regra de saque;
-*Uma classe Main, que demonstra a criação de uma conta de cada tipo, depósitos, saques válidos e inválidos, uso do limite emergencial e cobrança da tarifa da conta empresarial.
+Uma classe abstrata ContaBancaria, responsável pelos dados e comportamentos comuns a toda conta;
 
-###Conceitos Aplicados
+Três tipos de conta especializados (ContaCorrente, ContaPoupanca e ContaEmpresarial), cada um com sua própria regra de saque;
 
-###Herança: ContaCorrente, ContaPoupanca e ContaEmpresarial estendem ContaBancaria, reaproveitando atributos e comportamentos comuns (número da conta, titular, saldo, depósito e extrato).
-###Classes abstratas e métodos abstratos: ContaBancaria é abstrata e não pode ser instanciada diretamente; o método sacar() é declarado como abstrato, obrigando cada subclasse a implementar sua própria regra de saque.
-###Encapsulamento: o atributo saldo é privado e não possui método setSaldo(). Toda alteração de saldo ocorre exclusivamente por meio dos métodos depositar() (público, com validação) e debitar() (protegido), impedindo que o saldo seja modificado diretamente por classes externas, como a Main.
-###Modificador de acesso protected: o método debitar() é protegido, o que permite que apenas a própria classe e suas subclasses o utilizem para executar o débito após a validação do saque, sem expor esse controle à Main.
-###Polimorfismo: cada subclasse implementa sacar() de acordo com sua própria regra de negócio, sendo tratada de forma uniforme sempre que referenciada pelo tipo da superclasse ContaBancaria.
-###Validação de regras de negócio: valores de depósito e saque são validados antes de qualquer alteração de saldo, recusando operações inválidas (valores zero, negativos, ou que ultrapassem o saldo disponível somado ao limite).
+Uma classe Main, que demonstra a criação de uma conta de cada tipo, depósitos, saques válidos e inválidos, uso do limite emergencial e cobrança da tarifa da conta empresarial.
+
+Conceitos Aplicados
+
+Herança: ContaCorrente, ContaPoupanca e ContaEmpresarial estendem ContaBancaria, reaproveitando atributos e comportamentos comuns (número da conta, titular, saldo, depósito e extrato).
+
+Classes abstratas e métodos abstratos: ContaBancaria é abstrata e não pode ser instanciada diretamente; o método sacar() é declarado como abstrato, obrigando cada subclasse a implementar sua própria regra de saque.
+
+Encapsulamento: o atributo saldo é privado e não possui método setSaldo(). Toda alteração de saldo ocorre exclusivamente por meio dos métodos depositar() (público, com validação) e debitar() (protegido), impedindo que o saldo seja modificado diretamente por classes externas, como a Main.
+
+Modificador de acesso protected: o método debitar() é protegido, o que permite que apenas a própria classe e suas subclasses o utilizem para executar o débito após a validação do saque, sem expor esse controle à Main.
+
+Polimorfismo: cada subclasse implementa sacar() de acordo com sua própria regra de negócio, sendo tratada de forma uniforme sempre que referenciada pelo tipo da superclasse ContaBancaria.
+
+Validação de regras de negócio: valores de depósito e saque são validados antes de qualquer alteração de saldo, recusando operações inválidas (valores zero, negativos, ou que ultrapassem o saldo disponível somado ao limite).
 
 ##Solução Adotada
 
